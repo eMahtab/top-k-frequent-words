@@ -28,6 +28,16 @@ Explanation: "the", "is", "sunny" and "day" are the four most frequent words, wi
 3. words[i] consists of lowercase English letters.
 4. k is in the range [1, The number of unique words[i]]
 
+### Naive approach :
+1. First create a map (Map<String,Integer>) for frequency (how many times individual word appear in the input aray).
+
+2. Second step, reverse the map, so the frequency becomes the key and the value will be List<String> which appear that many times. (Use a TreeMap<Integer, List<String>>). Since we are intersted in the Top K words, using a TreeMap in second step will give us the access to words with most frequency.    
+
+3. Last step is to take the k words from the TreeMap, since by default TreeMap sorts the keys in ascending order, we can use the lastEntry() method on reverse map.
+   
+#### Don't forget to remove the word from the reverse map after considering it in the top k frequent words output List.   
+#### And to get the key and value from a Map.Entry, you can use getKey() and getValue() methods respectively.
+
 ## Implementation :
 ```java
 class Solution {
